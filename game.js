@@ -5,6 +5,7 @@ const timeEl = document.getElementById("time");
 const overlay = document.getElementById("overlay");
 const messageEl = document.getElementById("message");
 const startButton = document.getElementById("startButton");
+const controlButtons = document.querySelectorAll(".control");
 
 const gameState = {
   player: { x: 320, y: 180, radius: 14, speed: 3.2 },
@@ -121,6 +122,7 @@ const endGame = () => {
 };
 
 const startGame = () => {
+  clearInterval(gameState.timerId);
   resetGame();
   gameState.running = true;
   overlay.classList.add("hidden");
@@ -138,6 +140,23 @@ const startGame = () => {
   update();
 };
 
+const directionToKey = {
+  up: "ArrowUp",
+  down: "ArrowDown",
+  left: "ArrowLeft",
+  right: "ArrowRight",
+};
+
+const startDirection = (direction) => {
+  const key = directionToKey[direction];
+  if (key) gameState.keys.add(key);
+};
+
+const stopDirection = (direction) => {
+  const key = directionToKey[direction];
+  if (key) gameState.keys.delete(key);
+};
+
 startButton.addEventListener("click", () => {
   if (!gameState.running) startGame();
 });
@@ -147,10 +166,25 @@ window.addEventListener("keydown", (event) => {
     event.preventDefault();
     gameState.keys.add(event.key);
   }
+  if (!gameState.running && event.key === " ") {
+    startGame();
+  }
 });
 
 window.addEventListener("keyup", (event) => {
   gameState.keys.delete(event.key);
+});
+
+controlButtons.forEach((button) => {
+  const direction = button.dataset.direction;
+  button.addEventListener("mousedown", () => startDirection(direction));
+  button.addEventListener("mouseup", () => stopDirection(direction));
+  button.addEventListener("mouseleave", () => stopDirection(direction));
+  button.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    startDirection(direction);
+  });
+  button.addEventListener("touchend", () => stopDirection(direction));
 });
 
 drawBackground();

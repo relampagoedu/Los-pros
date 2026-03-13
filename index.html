@@ -11,7 +11,7 @@
       <header class="game__header">
         <div>
           <h1>Atrapa las Estrellas</h1>
-          <p>Mueve el personaje con las flechas o WASD y captura las estrellas.</p>
+          <p>Mueve el personaje con las flechas, WASD o los botones táctiles.</p>
         </div>
         <div class="game__stats">
           <div><span>Puntos:</span> <strong id="score">0</strong></div>
@@ -23,6 +23,14 @@
         <div class="game__overlay" id="overlay">
           <h2 id="message">Pulsa iniciar</h2>
           <button id="startButton">Iniciar</button>
+        </div>
+      </section>
+      <section class="game__controls" aria-label="Controles táctiles">
+        <button class="control" data-direction="up" aria-label="Mover arriba">↑</button>
+        <div class="controls__row">
+          <button class="control" data-direction="left" aria-label="Mover izquierda">←</button>
+          <button class="control" data-direction="down" aria-label="Mover abajo">↓</button>
+          <button class="control" data-direction="right" aria-label="Mover derecha">→</button>
         </div>
       </section>
       <footer class="game__footer">

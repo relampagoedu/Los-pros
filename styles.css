@@ -107,6 +107,35 @@ canvas {
   box-shadow: 0 12px 24px rgba(56, 189, 248, 0.3);
 }
 
+.game__controls {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.controls__row {
+  display: flex;
+  gap: 12px;
+}
+
+.control {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.control:active {
+  transform: scale(0.96);
+  background: #dbeafe;
+}
+
 .game__footer {
   color: #52616b;
   font-size: 0.95rem;
