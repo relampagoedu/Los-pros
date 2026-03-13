@@ -1,0 +1,142 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #eef2f7;
+  color: #1f2933;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+}
+
+.game {
+  width: min(900px, 100%);
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  display: grid;
+  gap: 20px;
+}
+
+.game__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.game__header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.game__header p {
+  margin: 0;
+  color: #52616b;
+}
+
+.game__stats {
+  display: grid;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.game__board {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: linear-gradient(135deg, #fef3c7, #dbeafe);
+  border-radius: 18px;
+  border: 2px solid #cbd5f5;
+}
+
+canvas {
+  border-radius: 16px;
+  background: #0f172a;
+  width: 100%;
+  max-width: 640px;
+}
+
+.game__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.55);
+  color: white;
+  border-radius: 16px;
+  text-align: center;
+  padding: 24px;
+}
+
+.game__overlay.hidden {
+  display: none;
+}
+
+#startButton {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 600;
+  font-size: 1rem;
+  background: #38bdf8;
+  color: #0f172a;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(56, 189, 248, 0.3);
+}
+
+.game__controls {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.controls__row {
+  display: flex;
+  gap: 12px;
+}
+
+.control {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.control:active {
+  transform: scale(0.96);
+  background: #dbeafe;
+}
+
+.game__footer {
+  color: #52616b;
+  font-size: 0.95rem;
+}
